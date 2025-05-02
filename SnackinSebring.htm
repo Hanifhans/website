@@ -1,0 +1,413 @@
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snackin - Cemilan Seblak Kering Terenak</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e63946;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 30px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #e63946;
+        }
+        .cta-button {
+            background-color: #e63946;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .cta-button:hover {
+            background-color: #c1121f;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-color: #ffd166;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1599629954294-14df9f8291bc?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            color: white;
+            max-width: 600px;
+        }
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 80px 0;
+            background-color: #f9f9f9;
+        }
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        .about-text {
+            flex: 1;
+        }
+        .about-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #e63946;
+        }
+        .about-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .about-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 80px 0;
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .section-header h2 {
+            font-size: 36px;
+            color: #e63946;
+            margin-bottom: 10px;
+        }
+        .product-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .product-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .product-item:hover {
+            transform: translateY(-5px);
+        }
+        .product-image {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+        }
+        .product-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .product-content {
+            padding: 20px;
+        }
+        .product-content h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .product-content .price {
+            color: #e63946;
+            font-weight: bold;
+            font-size: 18px;
+            margin-top: 10px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 80px 0;
+            background-color: #264653;
+            color: white;
+        }
+        .contact-content {
+            display: flex;
+            gap: 40px;
+        }
+        .contact-info {
+            flex: 1;
+        }
+        .contact-info h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #ffd166;
+        }
+        .contact-info p {
+            margin-bottom: 10px;
+        }
+        .order-platforms {
+            margin-top: 30px;
+        }
+        .order-platforms h3 {
+            margin-bottom: 15px;
+            color: #ffd166;
+        }
+        .platform-icons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .platform {
+            background-color: white;
+            border-radius: 10px;
+            padding: 10px 20px;
+            display: inline-block;
+            font-weight: bold;
+            color: #264653;
+            text-decoration: none;
+        }
+        .map {
+            flex: 1;
+            height: 300px;
+            background-color: #555;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ccc;
+            overflow: hidden;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        .social-icons {
+            margin-top: 20px;
+        }
+        .social-icons a {
+            color: white;
+            margin: 0 10px;
+            font-size: 20px;
+            text-decoration: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            nav ul {
+                margin-top: 20px;
+            }
+            nav ul li {
+                margin-left: 15px;
+            }
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            .about-content {
+                flex-direction: column;
+            }
+            .contact-content {
+                flex-direction: column;
+            }
+        }
+   <!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snackin - Cemilan Seblak Kering Terenak</title>
+    <style>
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <img src="https://www.azti.es/aztinnova/wp-content/uploads/2024/04/SNACKIN-LOGo_.jpg" alt="Snackin Logo">
+                <div class="logo-text">SNACKIN</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Beranda</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#products">Produk</a></li>
+                    <li><a href="#contact">Kontak</a></li>
+                </ul>
+            </nav>
+            <a href="#contact" class="cta-button">Pesan Sekarang</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Kriuk, Pedas, Nagih!</h1>
+                <p>Nikmati sensasi renyah dan pedas seblak kering Snackin. Cemilan yang bikin ketagihan dengan rempah pilihan dan proses pembuatan yang higienis.</p>
+                <a href="#products" class="cta-button">Lihat Produk</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container about-content">
+            <div class="about-text">
+                <h2>Tentang Snackin</h2>
+                <p>Snackin Sejahtera adalah brand cemilan seblak kering yang dibuat dengan bahan berkualitas dan rempah pilihan. Kami memadukan resep tradisional dengan sentuhan modern untuk menciptakan sensasi rasa yang tidak terlupakan.</p>
+                <p>Semua produk kami dibuat dengan standar kebersihan tinggi dan tanpa bahan pengawet berbahaya, sehingga aman dikonsumsi oleh semua kalangan. Kami berkomitmen untuk selalu memberikan yang terbaik bagi pelanggan kami.</p>
+                <p>Setiap gigitan dari produk kami memberikan kenikmatan rasa autentik khas Indonesia dengan sentuhan pedas yang pas.</p>
+    <!-- Products Section -->
+    <section id="products" class="products">
+        <div class="container">
+            <div class="section-header">
+                <h2>Produk Unggulan Kami</h2>
+                <p>Berbagai varian seblak kering dengan cita rasa yang menggugah selera</p>
+            </div>
+            <div class="product-items">
+
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="https://id-live-01.slatic.net/p/7ebeb777e5a76ab9f6163b4935c5c25a.jpg" alt="Kerupuk Beton">
+                    </div>
+                    <div class="product-content">
+                        <h3>Kerupuk Beton</h3>
+                        <p>Kerupuk beton yang renyah dengan bumbu seblak spesial. Tekstur padat dan kriuk di setiap gigitannya.</p>
+                        <div class="price">Rp 8.000</div>
+                    </div>
+                </div>
+
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134207-7r98v-lwptygmb7q5aa3" alt="Kerupuk Jengkol">
+                    </div>
+                    <div class="product-content">
+                        <h3>Kerupuk Jengkol</h3>
+                        <p>Kerupuk jengkol dengan rasa gurih dan pedas yang pas. Cocok untuk teman nonton atau cemilan saat kerja.</p>
+                        <div class="price">Rp 8.000</div>
+                    </div>
+                </div>
+
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="https://down-id.img.susercontent.com/file/id-11134201-23030-lx144cvi8mov96">
+                    </div>
+                    <div class="product-content">
+                        <h3>Kerupuk Mawar</h3>
+                        <p>Kerupuk mawar dengan bentuk unik dan rasa pedas yang menggigit. Favorit para pecinta pedas sejati!</p>
+                        <div class="price">Rp 8.000</div>
+                    </div>
+                </div>
+
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="https://id.shp.ee/QFUapfA" target="https://id.shp.ee/QFUapfA" class="cta-button">Pesan Sekarang</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container contact-content">
+            <div class="contact-info">
+                <h2>Hubungi Kami</h2>
+                <p><strong>Alamat:</strong> Bakalan Krapyak RT 03 RW 04, Kudus</p>
+                <p><strong>WhatsApp:</strong> 085806258278</p>
+                <p><strong>Email:</strong> @iannn.sssz</p>
+                <p><strong>Jam Operasional:</strong> Senin - Sabtu: 08.00 - 17.00 WIB</p>
+
+                <div class="order-platforms">
+                    <h3>Pesan Melalui:</h3>
+                    <div class="platform-icons">
+                        <a href="https://id.shp.ee/QFUapfA" target="https://id.shp.ee/QFUapfA" class="platform">Shopee</a>
+                    </div>
+                </div>
+            </div>
+            <div class="map">
+                <iframe src="https://www.google.com/maps/embed?..." width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Snackin Sejahtera - Seblak Kering Premium. Hak Cipta Dilindungi.</p>
+            <div class="social-icons">
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
